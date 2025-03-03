@@ -15,6 +15,7 @@ struct ContentView: View {
             quit
         }
         .padding()
+        .background(.background)
         .task {
             textEditorFocused = true
         }
@@ -43,10 +44,18 @@ fileprivate extension ContentView {
     }
 
     @ViewBuilder var textEditor: some View {
-        TextEditor(text: $text)
-            .frame(height: 400)
-            .background(.regularMaterial)
-            .focused($textEditorFocused)
+        VStack {
+            TextEditor(text: $text)
+                .background(.regularMaterial)
+                .focused($textEditorFocused)
+
+            Text("For a better experience, simply paste your JSON directly instead of typing it out. :)")
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .multilineTextAlignment(.leading)
+        }
+        .frame(height: 400)
     }
 
     @ViewBuilder var quit: some View {

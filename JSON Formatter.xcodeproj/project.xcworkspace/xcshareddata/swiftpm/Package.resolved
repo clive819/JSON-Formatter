@@ -1,0 +1,15 @@
+{
+  "originHash" : "9a0d50dd8fcab2f00c3b467d87d7ac32ccba21dec820869c8c48911a38d97611",
+  "pins" : [
+    {
+      "identity" : "rnajson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rnapier/RNAJSON.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bca46d077b7e54d42f803bacf779d6854156bbba"
+      }
+    }
+  ],
+  "version" : 3
+}

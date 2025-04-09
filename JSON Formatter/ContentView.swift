@@ -84,11 +84,15 @@ fileprivate extension ContentView {
             }
             let data = try encoder.encode(json)
 
+            try Task.checkCancellation()
+
             // Only enter actor when we need to.
             // https://clive819.github.io/posts/mastering-swift-concurrency/#best-practices-1
             await MainActor.run {
                 self.text = String(decoding: data, as: UTF8.self)
             }
+        } catch is CancellationError {
+            // no-op
         } catch {
             await MainActor.run {
                 self.text = "Invalid JSON"
